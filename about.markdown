@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Yisangwu
+title: About Alloy2 Rivet
 permalink: /about/
 ---
 <style type="text/css">
