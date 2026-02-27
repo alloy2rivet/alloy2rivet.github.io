@@ -2,6 +2,7 @@
 > https://django-hosts.readthedocs.io/en/latest/  
 > https://pypi.org/project/django-hosts/
 
+## django project:
 
 ### pip
 ```bash
