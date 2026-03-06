@@ -2,7 +2,7 @@
 layout: post
 title: golang定时器timer的几种简易实现
 tags: golang time
-categories: python  
+categories: golang   
 ---
 
 为写一个go的自动化工具，定时触发执行任务，简单测试了下go定时器的实现。
