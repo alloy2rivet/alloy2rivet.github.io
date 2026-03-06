@@ -1,3 +1,10 @@
+---
+layout: post
+title:  Channels + Daphne WebSocket 内存结构模型
+tags: django channel daphne
+categories: python   
+---
+ 
  **接近生产实际的 Channels + Daphne WebSocket 内存结构模型**。  
  分三层说明：
 
