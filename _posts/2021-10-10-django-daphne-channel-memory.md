@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Django+Channels + Daphne WebSocket 内存占用分析优化
+title:  Django+Channels+Daphne实现WebSocket 内存占用分析优化
 tags: django channel daphne
 categories: python   
 ---
