@@ -1,3 +1,43 @@
+---
+layout: post
+title:  Django+Channels + Daphne WebSocket 内存占用分析优化
+tags: django channel daphne
+categories: python   
+---
+
+django + channel-redis + daphne 开发websocket服务，使用 protocol buffer协议通信。
+supervisor管理daphne进程：
+```ini
+[program:daphne_26035]
+environment = ENV="PROD"
+directory = /data/services/app
+command = /usr/local/bin/daphne -b 127.0.0.1 -p 26035 --proxy-headers --websocket_timeout -1 -v 0 --ping-interval 8640000 app.asgi:application
+user = root
+autostart = true
+autorestart = true
+numprocs = 1
+stopasgroup = true
+killasgroup = true
+stderr_logfile = /var/log/stderr.log
+stdout_logfile = /var/log/stdout.log
+```
+
+top发现 daphne进程 VIRT  RES  占用较高，尤其是在长时间运行后。
+
+pmap 查看进程对应内存使用情况，部分如下：
+```bash
+00007ff423bf5000  98304K rw---   [ anon ]
+00007ff439bfd000  65536K rw---   [ anon ]
+00007ff418022000  65400K -----   [ anon ]
+0000000001d76000  35664K rw---   [ anon ]
+00007ff4373fc000  32768K rw---   [ anon ]
+00007ff434bfb000  32768K rw---   [ anon ]
+00007ff4323fa000  32768K rw---   [ anon ]
+00007ff42fbf9000  32768K rw---   [ anon ]
+00007ff42d3f8000  32768K rw---   [ anon ]
+00007ff42a3f6000  32768K rw---   [ anon ]
+```
+
 # 按进程名筛选
 ```bash
 top -p $(pgrep -d ',' daphne)
