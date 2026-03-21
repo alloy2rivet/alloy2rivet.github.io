@@ -39,10 +39,10 @@ categories: docker
 ```
 
 ### start container:
-> -d：让容器在后台运行。这是你需要的，因为你希望服务一直挂着提供接口。
-> -it：通常用于交互式操作（如进入终端手动输入命令）。对于“占坑”服务，加上 -it 虽然不报错，但完全没必要，且浪费资源
-> --privileged 会让容器拥有宿主机的所有内核权限（如修改磁盘分区、加载内核模块等）
-> --restart always 是非常正确的，这样只要服务器开着，这两个“伪装”服务就会自动运行，保证 App 不会因为连不上数据库而报错。
+> -d：让容器在后台运行。这是你需要的，因为你希望服务一直挂着提供接口。  
+> -it：通常用于交互式操作（如进入终端手动输入命令）。对于“占坑”服务，加上 -it 虽然不报错，但完全没必要，且浪费资源。    
+> --privileged 会让容器拥有宿主机的所有内核权限（如修改磁盘分区、加载内核模块等）。  
+> --restart always 是非常正确的，这样只要服务器开着，这两个“伪装”服务就会自动运行，保证 App 不会因为连不上数据库而报错。  
 ```bash
 # docker run -d --name elasticsearch --restart always -v /data/storage/elasticsearch:/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" -e "ELASTIC_PASSWORD=1234567" -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" elasticsearch:8.19.12
 ```
