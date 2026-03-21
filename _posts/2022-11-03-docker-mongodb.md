@@ -52,11 +52,7 @@ categories: docker
 test>
 test> use admin
 switched to db admin
-admin> db.createUser({
-user: "admin_user",
- pwd: "AFSAR#gasdg3eww",
-roles: [{ role: "root", db: "admin" }]
-})
+admin> db.createUser({user: "admin_user",pwd: "AFSAR#gasdg3eww",roles: [{ role: "root", db: "admin" }]})
 { ok: 1 }
 admin> db.auth('admin_user', 'AFSAR#gasdg3eww')
 { ok: 1 }
