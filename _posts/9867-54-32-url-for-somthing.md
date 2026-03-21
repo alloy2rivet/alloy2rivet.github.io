@@ -8,5 +8,5 @@ categories: url
 ### url list:
 
 - Astral：
-> https://github.com/astral-sh
+> https://github.com/astral-sh  
 > https://pypi.org/project/ruff/
