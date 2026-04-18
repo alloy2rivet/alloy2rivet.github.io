@@ -1,7 +1,7 @@
 ---
 layout: post
 title: minDoc迁移到wikijs
-tags: python, python
+tags: python, wiki
 categories: python
 ---
 
@@ -74,7 +74,7 @@ import datetime
 TARGET_DIR = './NameAaaa' 
 # 生成符合 Wiki.js 要求的 ISO 8601 时间戳
 CURRENT_TIME = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
-CURRENT_TIME = "2026-04-15T06:23:36.498Z"
+CURRENT_TIME = "2022-12-13T06:23:36.498Z"
 
 def process_md_files(directory):
     # 优化后的正则表达式：
